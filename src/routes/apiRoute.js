@@ -5,6 +5,17 @@ const fs = require('fs').promises;
 
 const path = require('path');
 
+const {
+  validateName,
+  validateAge,
+  validateTalk,
+  validateTalkKeys,
+} = require('../middlewares/validate.talker');
+
+const auth = require('../middlewares/auth');
+
+// const generateToken = require('../utils/generateToken');
+
 const talkersPath = path.resolve(__dirname, '../talker.json');
 
 const readFile = async () => {
@@ -40,5 +51,31 @@ router.get('/:id', async (req, res) => {
 
   res.status(404).send({ message: 'Pessoa palestrante não encontrada' });
 });
+
+router.post('/',
+  auth,
+  validateName,
+  validateAge,
+  validateTalk,
+  validateTalkKeys,
+
+  async (req, res) => {
+    const { name, age, talk: { watchedAt, rate } } = req.body;
+    const talkers = await readFile();
+    const newId = talkers.length + 1;
+
+    const newTalker = {
+      id: newId,
+      name,
+      age,
+      talk: {
+        watchedAt,
+        rate,
+      },
+    };
+    const allTalkers = JSON.stringify([...talkers, newTalker]);
+    await fs.writeFile(talkersPath, allTalkers);
+    res.status(201).json(newTalker);
+  });
 
 module.exports = router;
