@@ -2,13 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 const fs = require('fs').promises;
-// const path = require('path');
+const path = require('path');
 
-// const talkersPath = path.resolve(__dirname, '../talker.json');
-
-const { join } = require('path');
-
-const talkersPath = join(__dirname, '..', 'talker.json');
+const talkersPath = path.resolve(__dirname, '../talker.json');
 
 const readFile = async () => {
   try {
