@@ -28,9 +28,16 @@ const isIdFound = async (id) => {
   return talkers.some(({ id: talkerId }) => talkerId === Number(id));
 };
 
+const searchTalkers = async (q) => {
+  const talkers = await readFile();
+  const filteredTalkers = talkers.filter((talker) => talker.name.includes(q));
+  return filteredTalkers;
+};
+
 module.exports = {
   readFile,
   getAll,
   getById,
   isIdFound,
+  searchTalkers,
 };

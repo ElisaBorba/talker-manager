@@ -5,7 +5,12 @@ const fs = require('fs').promises;
 
 const path = require('path');
 
-const { readFile, getAll, getById } = require('../controllers/talkerController');
+const {
+  readFile,
+  getAll,
+  getById,
+  searchTalkers,
+} = require('../controllers/talkerController');
 
 const {
   validateName,
@@ -15,10 +20,15 @@ const {
 } = require('../middlewares/validate.talker');
 
 const auth = require('../middlewares/auth');
-
 const isIdFound = require('../middlewares/validate.not.found.talker');
 
 const talkersPath = path.resolve(__dirname, '../talker.json');
+
+router.get('/search', auth, async (req, res) => {
+  const { q } = req.query;
+  const talkers = await searchTalkers(q);
+  res.status(200).json(talkers);
+});
 
 router.get('/', async (req, res) => {
   const talkers = await getAll();
