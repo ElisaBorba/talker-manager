@@ -1,12 +1,6 @@
 # Talker Manager
 Bem-vindo ao Talker Manager, uma aplicação para gerenciar palestrantes e suas informações! Com o Talker Manager, você pode adicionar, visualizar, atualizar e excluir palestrantes do seu sistema de forma simples e eficiente. Esta aplicação foi desenvolvida em `JavaScript` e é ideal para quem precisa organizar informações sobre palestrantes de eventos.
 
-## ⚙️ Funcionalidades
-* Adiciona novos palestrantes ao sistema, informando nome, idade e detalhes da palestra;
-* Visualiza informações detalhadas de cada palestrante, incluindo nome, idade e detalhes da palestra;
-* Atualiza as informações de um palestrante, incluindo nome, idade e detalhes da palestra;
-* Exclua palestrantes do sistema de forma segura;
-
 ## 💻 Tecnologias Utilizadas
 * Node.js
 * Express.js
