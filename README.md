@@ -7,7 +7,7 @@ Bem-vindo ao Talker Manager, uma aplicação para gerenciar palestrantes e suas 
 * Atualiza as informações de um palestrante, incluindo nome, idade e detalhes da palestra;
 * Exclua palestrantes do sistema de forma segura;
 
-## 💻 Tecnologia Utilizada
+## 💻 Tecnologias Utilizadas
 * Node.js
 * Express.js
 * JavaScript
@@ -34,6 +34,16 @@ Bem-vindo ao Talker Manager, uma aplicação para gerenciar palestrantes e suas 
 ├── Dockerfile
 └── README.md
 ```
+
+### Endpoints Disponíveis
+* POST /login: Rota para autenticação de usuário.
+* GET /talker: Rota para listar todos os palestrantes.
+* GET /talker/:id: Rota para obter informações de um palestrante específico.
+* GET /talker/search?q=query: Rota para buscar palestrantes pelo nome.
+* POST /talker: Rota para adicionar um novo palestrante.
+* PUT /talker/:id: Rota para atualizar informações de um palestrante.
+* DELETE /talker/:id: Rota para excluir um palestrante.
+
 ### Como executar
 1️⃣ Em um terminal, inicie os containers:
 ```
