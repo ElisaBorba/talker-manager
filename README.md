@@ -38,18 +38,7 @@ Bem-vindo ao Talker Manager, uma aplicação para gerenciar palestrantes e suas 
 * PUT /talker/:id: Rota para atualizar informações de um palestrante.
 * DELETE /talker/:id: Rota para excluir um palestrante.
 
-### Como executar
-1️⃣ Em um terminal, inicie os containers:
+### Execute os testes com:
 ```
-docker-compose up -d
-```
-2️⃣ Acessando o terminal:
-```
-docker exec -it talker_manager bash
-npm start
-```
-3️⃣ Em outro terminal, execute os testes:
-```
-docker exec -it talker_manager bash
 npm test
 ```
